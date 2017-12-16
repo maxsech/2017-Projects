@@ -23,14 +23,19 @@ topFit = max(inputFitness);
 
 normilizedFitness = inputFitness/topFit;
 
+%Mutliplying the fitness value that ranges from 0 to 1 by the mating
+%factor, this number will determine how many 'tickets' will be entered into
+%the mating pool for each organisim.
 repeatIndicator = int8(normilizedFitness .* matingFactor);
 
+%Initializing the matingpool
 matingPool = [];
 
-
+%This for loop will run until each member of the population has had its
+%tickets added to the pool. 
 for i = 1 : popSize
         
-    if repeatIndicator(1, i) > matingFactor/2
+    if repeatIndicator(1, i) ~= 0
         
         bound = repeatIndicator(1, i);
         

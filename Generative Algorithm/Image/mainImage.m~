@@ -7,9 +7,9 @@ close all;
 
 %Defining constants
 FILE = '25x25angry.png';
-POPULATION_SIZE = 500;
+POPULATION_SIZE = 150;
 MATING_FACTOR = 100;
-EXPONENTIAL_FACTOR = 50;
+EXPONENTIAL_FACTOR = 30;
 MUTATION_RATE = 1;
 MUTATION_RANGE = 50;
 TARGET_FITNESS = .99;
@@ -39,7 +39,7 @@ initialPopulationBlue = buildPopulationImage(POPULATION_SIZE ,targetWidth, targe
 
 %Initializing the populations for each layer that will be iterated upon for
 %each generation. The populations will be initialized with the values of the
-%first generation that were generated on lines above.
+%first generation that were generated on lines 3
 redPopulation = initialPopulationRed;
 greenPopulation = initialPopulationGreen;
 bluePopulation = initialPopulationBlue;
@@ -50,7 +50,7 @@ fitnessValuesGreen = calculateFitnessImage(greenPopulation, targetImageGreen, TO
 fitnessValuesBlue = calculateFitnessImage(bluePopulation, targetImageBlue, TOLERANCE, POPULATION_SIZE);
 
 %Finding the highest fitness value for each layer of the generation, then saving the most
-%fit organisim for each layer.
+%fit organisim for each layer
 maxFitnessRed(1, generationCount) = max(fitnessValuesRed);
 maxFitnessRedOrganism(1, generationCount) = redPopulation(find(fitnessValuesRed == max(fitnessValuesRed), 1));
 
