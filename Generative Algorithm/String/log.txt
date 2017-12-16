@@ -1,0 +1,66 @@
+Generation 1:
+  Max Fitness: 0.000000
+  Average Fitness: 0.000000
+Generation 2:
+  Max Fitness: 0.277778
+  Average Fitness: 0.073630
+Generation 3:
+  Max Fitness: 0.388889
+  Average Fitness: 0.109722
+Generation 4:
+  Max Fitness: 0.444444
+  Average Fitness: 0.149815
+Generation 5:
+  Max Fitness: 0.611111
+  Average Fitness: 0.187537
+Generation 6:
+  Max Fitness: 0.611111
+  Average Fitness: 0.224444
+Generation 7:
+  Max Fitness: 0.666667
+  Average Fitness: 0.259611
+Generation 8:
+  Max Fitness: 0.611111
+  Average Fitness: 0.290722
+Generation 9:
+  Max Fitness: 0.722222
+  Average Fitness: 0.315907
+Generation 10:
+  Max Fitness: 0.722222
+  Average Fitness: 0.347278
+Generation 11:
+  Max Fitness: 0.777778
+  Average Fitness: 0.383611
+Generation 12:
+  Max Fitness: 0.777778
+  Average Fitness: 0.414593
+Generation 13:
+  Max Fitness: 0.777778
+  Average Fitness: 0.438148
+Generation 14:
+  Max Fitness: 0.833333
+  Average Fitness: 0.460185
+Generation 15:
+  Max Fitness: 0.833333
+  Average Fitness: 0.478870
+Generation 16:
+  Max Fitness: 0.833333
+  Average Fitness: 0.495481
+Generation 17:
+  Max Fitness: 0.944444
+  Average Fitness: 0.510593
+Generation 18:
+  Max Fitness: 0.944444
+  Average Fitness: 0.525148
+Generation 19:
+  Max Fitness: 0.888889
+  Average Fitness: 0.537093
+Generation 20:
+  Max Fitness: 0.888889
+  Average Fitness: 0.551778
+Generation 21:
+  Max Fitness: 0.888889
+  Average Fitness: 0.566889
+Generation 22:
+  Max Fitness: 1.000000
+  Average Fitness: 0.579185
