@@ -39,9 +39,9 @@ for i = 1 : popSize
         
         bound = repeatIndicator(1, i);
         
-        current = ones(1, bound) * i;
+        current = ones(1, bound) * i; %Creating a matrix with a number of elements corresponding to the number of tickets for the selected member, and setting those elements to the value of the members index 
         
-        matingPool = [matingPool , current];
+        matingPool = [matingPool , current]; %Adding the matrix created above to the mating pool
         
     end
 end
