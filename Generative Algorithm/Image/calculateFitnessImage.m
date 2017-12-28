@@ -37,9 +37,9 @@ normalFitnessValues = zeros(1, popSize);
 for i = 1:popSize
     curentOrganism = uint8(inputPopulation{1, i});
 
-    normalComparison = imabsdiff(targetImage, curentOrganism);
-    foundPixelsNormal = numel(find(normalComparison < tolerance));
-    normalFitnessValues(1, i) = foundPixelsNormal / (targetWidth * targetHeight);
+    normalComparison = imabsdiff(targetImage, curentOrganism);  %Finding the difference between the target and the member of the population
+    foundPixelsNormal = numel(find(normalComparison < tolerance));  %finding where that absolute difference is less than the tolerance
+    normalFitnessValues(1, i) = foundPixelsNormal / (targetWidth * targetHeight);  %dividing the number of pixels found to be within tolerance by the total number of pixels
 end
 
 %% Mean Filter
@@ -53,10 +53,10 @@ noiseReducedImageTarget = uint8(conv2(targetImage, kernel));
 for i = 1:popSize
     curentOrganism = uint8(inputPopulation{1, i});
 
-    noiseReducedImagePopulation = uint8(conv2(curentOrganism, kernel));
-    meanComparison = imabsdiff(noiseReducedImageTarget, noiseReducedImagePopulation);
-    foundPixelsMean = numel(find(meanComparison < tolerance));
-    meanFitnessValues(1, i) = foundPixelsMean / (targetWidth * targetHeight);
+    noiseReducedImagePopulation = uint8(conv2(curentOrganism, kernel)); %applying a mean filter to the population member
+    meanComparison = imabsdiff(noiseReducedImageTarget, noiseReducedImagePopulation);   %Finding the difference between the target and the member of the population
+    foundPixelsMean = numel(find(meanComparison < tolerance));  %finding where that absolute difference is less than the tolerance
+    meanFitnessValues(1, i) = foundPixelsMean / (targetWidth * targetHeight);  %dividing the number of pixels found to be within tolerance by the total number of pixels
 end
 
 %% Differential X
@@ -64,12 +64,12 @@ end
 xDifferentialFitnessValues = zeros(1, popSize);
 
 for i = 1:popSize
-    xTarget = diff(targetImage,1,2);
-    xPopulation = diff(uint8(inputPopulation{1, i}),1,2);
+    xTarget = diff(targetImage,1,2); %Finding the difference between pixels in the x direction for the target image
+    xPopulation = diff(uint8(inputPopulation{1, i}),1,2); %Finding the difference between pixels in the x direction for the currently selected member of the population
     
-    xDiffernetialComparison = imabsdiff(xTarget, xPopulation);
-    foundPixelsdiffernetialX = numel(find(xDiffernetialComparison < diffentialTolerance));
-    xDifferentialFitnessValues(1, i) = foundPixelsdiffernetialX / (targetWidth * targetHeight);
+    xDiffernetialComparison = imabsdiff(xTarget, xPopulation); %Finding the absolute difference between the differences of the target and the member of the population
+    foundPixelsdiffernetialX = numel(find(xDiffernetialComparison < diffentialTolerance)); %finding where that absolute difference is less than the tolerance
+    xDifferentialFitnessValues(1, i) = foundPixelsdiffernetialX / (targetWidth * targetHeight); %dividing the number of pixels found to be within tolerance by the total number of pixels
 
 end
     
@@ -78,17 +78,18 @@ end
 yDifferentialFitnessValues = zeros(1, popSize);
 
 for i = 1:popSize
-    yTarget = diff(targetImage);
-    yPopulation = diff(uint8(inputPopulation{1, i}));
+    yTarget = diff(targetImage);    %Finding the difference between pixels in the y direction for the target image
+    yPopulation = diff(uint8(inputPopulation{1, i}));   %Finding the difference between pixels in the y direction for the currently selected member of the population
     
-    yDiffernetialComparison = imabsdiff(yTarget, yPopulation);
-    foundPixelsdiffernetialY = numel(find(yDiffernetialComparison < diffentialTolerance));
-    yDifferentialFitnessValues(1, i) = foundPixelsdiffernetialY / (targetWidth * targetHeight);
+    yDiffernetialComparison = imabsdiff(yTarget, yPopulation);  %Finding the absolute difference between the differences of the target and the member of the population
+    foundPixelsdiffernetialY = numel(find(yDiffernetialComparison < diffentialTolerance));  %finding where that absolute difference is less than the tolerance
+    yDifferentialFitnessValues(1, i) = foundPixelsdiffernetialY / (targetWidth * targetHeight);  %dividing the number of pixels found to be within tolerance by the total number of pixels
 end
 
 %% Combo
 
 for i = 1:popSize
+    %combining the separate fitness values into a unified fitness value
    fitnessValues(1, i) = sqrt(((normalFitnessValues(1, i))/1.01)^2 + (meanFitnessValues(1, i))^2 + ((xDifferentialFitnessValues(1, i))/2)^2 + ((yDifferentialFitnessValues(1, i))/2)^2);
    
 end
