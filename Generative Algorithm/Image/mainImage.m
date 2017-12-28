@@ -92,6 +92,8 @@ while maxFitness(1, generationCount) < TARGET_FITNESS
         boundBlue = length(matingPoolBlue);
         
         %Selecting a random parent from matingPool of each layer
+        %Since the mating pool holds indicies of the population based on the number of tickets they were assigned, the members with their index represented in the mating pool
+        %more times are more likely to be choosen.
         redParent1Index = matingPoolRed(randi([1,boundRed]));
         redParent2Index = matingPoolRed(randi([1,boundRed]));
         
