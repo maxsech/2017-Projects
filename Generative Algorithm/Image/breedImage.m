@@ -29,10 +29,12 @@ child = [parent1Cut , parent2Cut];
 
 
 %Random
-[rows, columns] = size(parent1);
+[rows, columns] = size(parent1); %Getting size of the first parent, will be the same size as the second parent
 
-parent1Mask = logical(randi([0 1], rows, columns));
+parent1Mask = logical(randi([0 1], rows, columns)); %Creating a matrix of logical values that is the same size as the parents
 
+%The following loops will run through each value of the logical mask, and if the value is true, the corresponding position in the child is
+%filled with the value from the first parent, otherwise if the child value is set to the value from the second parent
 for r = 1: rows
     for c = 1: columns
         if parent1Mask(r, c)
