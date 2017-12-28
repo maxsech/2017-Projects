@@ -19,8 +19,9 @@ population = zeros(1, popSize);
 cellPopulation = num2cell(population);
 
 for i = 1:popSize
-    organismRaw = zeros(targetWidth, targetHeight);
+    organismRaw = zeros(targetWidth, targetHeight); %Creating a template that is the same size as the target image
     
+    %The following loops will fill the template with randomized number data from 1 to 255
     for w = 1 : targetWidth
         for h = 1 : targetHeight
             dna = randi([1, 255]);
@@ -29,7 +30,7 @@ for i = 1:popSize
         end
     end
     
-    cellPopulation{1, i} = organismRaw;
+    cellPopulation{1, i} = organismRaw; %adding the generated organism to the population
 end
 
 out = cellPopulation;
